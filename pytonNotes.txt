@@ -1,0 +1,7 @@
+REPL
+   py or python to enter REPL
+   fibonacci.fib(10)
+	inside the fibonacci file/module there is a fib function that takes one parameter
+
+Pi camera documentation
+    https://picamera.readthedocs.io/en/release-1.13/index.html
