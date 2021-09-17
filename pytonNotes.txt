@@ -5,3 +5,6 @@ REPL
 
 Pi camera documentation
     https://picamera.readthedocs.io/en/release-1.13/index.html
+
+pip list -v 
+can be used to list packages' install locations
