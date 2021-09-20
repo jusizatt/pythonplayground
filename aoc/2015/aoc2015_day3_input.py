@@ -31,6 +31,10 @@ class Tracker:
 
     def unique(self):
         return len(set(self.path))
+    
+    def unique2(santa, robosanta):
+        santa.extend(robosanta)
+        return len(set(santa))
 
 def Part1():
     f = open("C:\\W\\pythonplayground\\aoc\\2015\\aoc2015_day3_input.txt", "r")
@@ -43,11 +47,19 @@ def Part1():
     print("Part 1", count)
 
 def Part2():
-    f = open("C:\\W\\pythonplaygroud\\aoc\\2015\\aoc2015_day3_input.txt", "r")
+    f = open("C:\\W\\pythonplayground\\aoc\\2015\\aoc2015_day3_input.txt", "r")
     lines = f.read()
-        
+    
+    santaTracker = Tracker()
+    for c in iter(lines[0::2]):
+        santaTracker.go(c)
+    
+    roboSantaTracker = Tracker()
+    for c in iter(lines[1::2]):
+        roboSantaTracker.go(c)
 
-    print("Part 2")
+    count = Tracker.unique2(santaTracker.path, roboSantaTracker.path) 
+    print("Part 2", count)
 
 if __name__ == "__main__":
     Part1()
