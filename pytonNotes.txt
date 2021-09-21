@@ -8,3 +8,13 @@ Pi camera documentation
 
 pip list -v 
 can be used to list packages' install locations
+
+FLASK Getting Started
+    python -m pip install flask (Installs Flask)
+
+    (linux|windows)
+    (export|set) FLASK_APP=[python file name]
+    (export|set) FLASK_ENV=development
+
+    flask run
+    python -m flask run
