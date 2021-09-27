@@ -53,7 +53,7 @@ def Part1():
             
             turnOff(int(xlow), int(ylow), int(xhigh), int(yhigh))
 
-        else:
+        elif x.startswith("toggle"):
             formattedString = x.replace(" through ", " ").replace("toggle ", "")
             print("toggle", formattedString)
             parts = formattedString.split(" ")
@@ -61,6 +61,9 @@ def Part1():
             (xhigh, yhigh) = parts[1].split(",")
             
             toggle(int(xlow), int(ylow), int(xhigh), int(yhigh))
+        
+        else:
+          print("BAD STUFF........................................................")
 
     print("Part 1")
 
@@ -70,19 +73,19 @@ def Part2():
   
     print("Part 2")
 
-def turnOn(xLow, xHigh, yLow, yHigh):
-    for x in range(xLow, xHigh + 1):
-      for y in range(yLow, yHigh + 1):
+def turnOn(x1, y1, x2, y2):
+    for x in range(x1, x2 + 1):
+      for y in range(y1, y2 + 1):
         lightGrid[x][y] = True
 
-def turnOff(xLow, xHigh, yLow, yHigh):
-    for x in range(xLow, xHigh + 1):
-      for y in range(yLow, yHigh + 1):
+def turnOff(x1, y1, x2, y2):
+    for x in range(x1, x2 + 1):
+      for y in range(y1, y2 + 1):
         lightGrid[x][y] = False
 
-def toggle(xLow, xHigh, yLow, yHigh):
-    for x in range(xLow, xHigh + 1):
-      for y in range(yLow, yHigh + 1):
+def toggle(x1, y1, x2, y2):
+    for x in range(x1, x2 + 1):
+      for y in range(y1, y2 + 1):
         lightGrid[x][y] = not lightGrid[x][y]
 
 if __name__ == "__main__":
