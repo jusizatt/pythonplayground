@@ -1,41 +1,49 @@
-from typing import Set
+from itertools import permutations
+from itertools import pairwise
 
-citys = set() 
+
+citys = set()
+cityDistances = {} 
 
 
 def parseLine():
-    f = open("C:\\W\\pythonplayground\\aoc\\2015\input\\aoc2015_day9_input.txt", "r")
+    #f = open("C:\\W\\python\\aoc\\2015\input\\aoc2015_day9_input_test.txt", "r")
+    f = open("C:\\W\\python\\aoc\\2015\input\\aoc2015_day9_input.txt", "r")
     lines = f.read()
 
     for l in lines.split('\n'):
         parts = l.split(' ')
         global citys
-        citys.add(parts[0])
-        citys.add(parts[2])
+        cityone = parts[0]
+        citytwo = parts[2]
+        citys.add(cityone)
+        citys.add(citytwo)
+
+        global cityDistances
+        cityDistances[parts[0]+parts[2]] = int(parts[4])
 
     return list(citys)
 
-def tracePath(citys, currentPath = None):
-    if currentPath == None:
-        currentPath = []
-
-    if len(citys) == 0:
-        return currentPath
-
-    path = []
-    for eachPath in citys:
-        currentPath.append(citys[0])
-        return tracePath(citys[1:], currentPath)
-
-
+#not 247
+#is 117
 if __name__ == "__main__":
     citys = parseLine()
     print(citys)
-    paths = []
-    for p in citys:
-        path = tracePath(citys)
-        paths.append(path)
-        c = citys.pop(0)
-        citys.append(c)
+
+    p = permutations(citys)
     
-    print(paths)
+    distances = {}
+    for x in list(p):
+        distance = 0
+
+        for pa in pairwise(x):
+            dis = cityDistances.get(pa[0]+pa[1]) if cityDistances.get(pa[0]+pa[1]) != None else cityDistances.get(pa[1]+pa[0])
+            distance += dis
+
+        distances[x] = distance
+    
+    #print(distances)
+    min = min(distances.values())
+    max = max(distances.values())
+    print("part 1", min)
+    print("part 2", max)
