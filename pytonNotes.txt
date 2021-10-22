@@ -18,3 +18,7 @@ FLASK Getting Started
 
     flask run
     python -m flask run
+
+    #checking the url maps from the REPL
+    >>>import [python file name]
+    >>>[python file name].app.url_map
