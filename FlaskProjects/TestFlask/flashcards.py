@@ -17,5 +17,3 @@ def garage():
         return redirect(url_for("garageview", value=input))
     else:
         return render_template("button was clicked.")
-
-    
