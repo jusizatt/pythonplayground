@@ -1,3 +1,6 @@
+RaspberryPI PAT
+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
+
 REPL
    py or python to enter REPL
    fibonacci.fib(10)
